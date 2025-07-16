@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* iOS-like dark background for the entire page */
+  background-color: #1a1a1a;
+}
+
+#calculator {
+  /* Using system font if available, otherwise common sans-serif */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #000; /* Pure black for the calculator body */
+  border-radius: 20px;
+  max-width: 350px; /* Standard iPhone calculator width */
+  overflow: hidden;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4); /* Deeper shadow for pop-out effect */
+}
+
+#display {
+  width: calc(100% - 40px);
+  padding: 20px;
+  font-size: 5.5rem; /* Larger font for display */
+  color: #ffffff; /* White numbers */
+  background-color: #000; /* Black display background */
+  text-align: right;
+  box-sizing: border-box;
+  min-height: 110px; /* Taller display */
+  display: flex;
+  align-items: flex-end; /* Align numbers to the bottom */
+  justify-content: flex-end;
+  word-wrap: break-word;
+  overflow: hidden;
+  line-height: 1; /* Prevent extra space between lines */
+  padding-bottom: 10px; /* Adjust padding at the bottom of display */
+}
+
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px; /* iOS calculator has slightly tighter gaps */
+  padding: 20px; /* Adjust padding to match button size */
+}
+
+button {
+  width: 75px; /* Slightly larger buttons */
+  height: 75px; /* Slightly larger buttons */
+  border-radius: 50%; /* Make them perfectly circular like iOS */
+  border: none;
+  color: white;
+  font-size: 2.2rem; /* Adjusted font size for buttons */
+  cursor: pointer;
+  transition: background-color 0.1s ease, transform 0.05s ease; /* Smooth transition and slight press effect */
+}
+
+/* Number Buttons (0-9, .) - Dark Gray */
+.number-btn {
+  background-color: #333333;
+}
+
+.number-btn:hover {
+  background-color: #4a4a4a; /* Slightly lighter on hover */
+}
+
+.number-btn:active {
+  background-color: #666666; /* Even lighter on active/press */
+  transform: scale(0.98); /* Slight shrink effect on press */
+}
+
+/* Operator Buttons (+, -, ×, ÷, =) - Orange */
+.operator-btn {
+  background-color: #ff9400; /* iOS orange */
+}
+
+.operator-btn:hover {
+  background-color: #ffa52a;
+}
+
+.operator-btn:active {
+  background-color: #e08200;
+  transform: scale(0.98);
+}
+
+/* Clear/Control Buttons (AC, +/-, %) - Light Gray */
+.clear-btn {
+  background-color: #a5a5a5; /* iOS light gray */
+  color: #000; /* Black text for light buttons */
+}
+
+.clear-btn:hover {
+  background-color: #bbbbbb;
+}
+
+.clear-btn:active {
+  background-color: #cccccc;
+  transform: scale(0.98);
+}
+
+/* Specific styling for the '0' button to span two columns */
+.zero-btn {
+  grid-column: span 2; /* Span two columns */
+  border-radius: 40px; /* Oval shape for the wide '0' button */
+  width: auto; /* Allows it to stretch */
+  text-align: left; /* Align text to the left */
+  padding-left: 28px; /* Add some padding to the left for text */
+}
+
+/* The equals button often just uses the operator-btn style, but if you wanted it unique:
+.equals-btn {
+    // You could override colors here if needed, but it's typically orange like other operators
+}
+*/
